@@ -1,36 +1,33 @@
 import requests
 
-# Telegram bot bilgileri
 TELEGRAM_TOKEN = "7730853093:AAHZCZOUZMj3q4WYqFY60zoCuSR8IWZphMM"
 TELEGRAM_CHAT_ID = "1222350744"
 
-def send_telegram_message(message, parse_mode="Markdown"):
+def send_telegram_message(message):
     """
     Telegram botundan mesaj gönderir.
-    :param message: Gönderilecek mesaj içeriği (string)
-    :param parse_mode: Mesajın formatı (örneğin: 'Markdown', 'HTML')
-    :return: Telegram API yanıtı (json)
+    Hata kontrolü ile başarısız istekleri yakalar.
     """
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
-        "text": message,
-        "parse_mode": parse_mode  # Mesajın formatı için destek
+        "text": message
     }
+
     try:
         response = requests.post(url, json=payload)
-        response.raise_for_status()  # Hata durumlarını yakalar
-        print("Mesaj başarıyla gönderildi!")
-        return response.json()
+        response.raise_for_status()  # HTTP hatalarını kontrol et
+
+        if response.status_code == 200:
+            print("Mesaj başarıyla gönderildi.")
+            return response.json()
+        else:
+            print(f"Mesaj gönderilemedi, status kodu: {response.status_code}")
+            return None
+
     except requests.exceptions.RequestException as e:
-        print(f"Mesaj gönderiminde hata oluştu: {e}")
+        print(f"Mesaj gönderilirken hata oluştu: {e}")
         return None
 
 # Test mesajı gönder
-if __name__ == "__main__":
-    test_message = (
-        "*Selam 🚀*\n\n"
-        "_Bu bir test mesajıdır._\n"
-        "`Kod blokları desteklenir.`"
-    )
-    send_telegram_message(test_message)
+send_telegram_message("Selam 🚀")

@@ -2,7 +2,7 @@ import os
 from data.dataClient.fetch_binance_data import fetch_and_append_data
 from indicators.calculate_indicators import calculate_indicators
 from signals.generate_signals import generate_signals
-from notifications.notification import send_telegram_messagert 
+from notifications.notification import send_telegram_message
 
 
 def main():
@@ -11,11 +11,22 @@ def main():
     """
     try:
         print("📊 Veri çekme işlemi başlatılıyor...")
-        fetch_and_save_data()  # Binance API'den verileri çek ve kaydet
+        # İlk 50 işlem çiftini al
+        top_50_symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT']  # Gerçekten ilk 50'yi buraya ekleyebilirsiniz
+        fetch_and_append_data(top_50_symbols)  # Binance API'den verileri çek ve kaydet
         print("✅ Veri çekme tamamlandı.")
 
         print("📈 İndikatör hesaplama işlemi başlatılıyor...")
-        process_all_data()  # İndikatörleri hesapla ve işlenmiş verileri kaydet
+        # İşlenmiş verilerle indikatör hesaplama işlemi başlat
+        # Bu işlem için doğru fonksiyon çağrılmalı
+        data_dir = os.path.join(os.path.dirname(__file__), "../data/dataClient/data")
+        if not os.path.exists(data_dir):
+            print(f"Veri klasörü bulunamadı: {data_dir}")
+        else:
+            for file_name in os.listdir(data_dir):
+                if file_name.endswith("_latest.csv"):
+                    file_path = os.path.join(data_dir, file_name)
+                    calculate_indicators(file_path)  # İndikatör hesaplama fonksiyonu
         print("✅ İndikatör hesaplama tamamlandı.")
 
         print("🔔 Sinyal üretimi başlatılıyor...")
@@ -31,6 +42,7 @@ def main():
         error_message = f"🚨 Süreçte hata oluştu: {e}"
         print(error_message)
         send_telegram_message(error_message)
+
 
 if __name__ == "__main__":
     # Çalışma dizinini kontrol et ve ayarla
