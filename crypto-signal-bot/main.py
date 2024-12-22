@@ -1,36 +1,41 @@
 import os
-from data.dataClient.fetch_binance_data import get_top_100_symbols, fetch_and_append_data
+from data.dataClient.fetch_binance_data import fetch_and_append_data
 from indicators.calculate_indicators import calculate_indicators
 from signals.generate_signals import generate_signals
-from notifications.send_telegram import send_notification
+from notifications.notification import send_telegram_messagert 
+
 
 def main():
-    # 1. Binance API'den ilk 100 işlem çiftini al
-    print("İlk 100 işlem çifti alınıyor...")
-    top_100_symbols = get_top_100_symbols()
+    """
+    Tüm süreçlerin sırasıyla yürütüldüğü ana fonksiyon.
+    """
+    try:
+        print("📊 Veri çekme işlemi başlatılıyor...")
+        fetch_and_save_data()  # Binance API'den verileri çek ve kaydet
+        print("✅ Veri çekme tamamlandı.")
 
-    if not top_100_symbols:
-        print("İşlem çiftleri alınamadı, program sonlandırılıyor.")
-        return
+        print("📈 İndikatör hesaplama işlemi başlatılıyor...")
+        process_all_data()  # İndikatörleri hesapla ve işlenmiş verileri kaydet
+        print("✅ İndikatör hesaplama tamamlandı.")
 
-    # 2. Verileri Binance API'den çek ve dosyalara kaydet
-    print("Veriler çekiliyor ve güncelleniyor...")
-    fetch_and_append_data(top_100_symbols)
+        print("🔔 Sinyal üretimi başlatılıyor...")
+        generate_signals()  # İşlenmiş verilerle al-sat sinyalleri oluştur
+        print("✅ Sinyal üretimi tamamlandı.")
 
-    # 3. İndikatörleri hesapla
-    print("İndikatörler hesaplanıyor...")
-    calculate_indicators()  # İlgili veri dosyalarını kullanarak çalışacak şekilde yapılandırın
+        print("✉️ Bildirim gönderiliyor...")
+        send_telegram_message("Tüm süreç başarıyla tamamlandı!")  # Sürecin bittiğini bildiren mesaj
+        print("✅ Bildirim gönderildi.")
 
-    # 4. Alım-satım sinyalleri oluştur
-    print("Sinyaller oluşturuluyor...")
-    signals = generate_signals()  # Alım-satım sinyalleri oluştur
-
-    # 5. Sinyalleri Telegram botuna gönder
-    if signals:
-        print("Sinyaller gönderiliyor...")
-        send_notification(signals)
-    else:
-        print("Gönderilecek sinyal bulunamadı.")
+    except Exception as e:
+        # Hata durumunda mesaj gönder
+        error_message = f"🚨 Süreçte hata oluştu: {e}"
+        print(error_message)
+        send_telegram_message(error_message)
 
 if __name__ == "__main__":
+    # Çalışma dizinini kontrol et ve ayarla
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(current_dir)
+
+    # Ana işlemleri başlat
     main()
