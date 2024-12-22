@@ -1,0 +1,12 @@
+# config/settings.py
+API_KEY = "2I9CaVQdRlwCk2LCwZFymqLJw752k1ZbepViJdtN4vFzngqAYWqlbB2ZuvdZRqyi"
+API_SECRET = "wVqHUoDLDed01GmskJ6MebVTvTdw8XxQ51snbvdOfOKeFGXs9Irlm2Lq6PvEEdoM"
+
+TELEGRAM_TOKEN = "7730853093:AAHZCZOUZMj3q4WYqFY60zoCuSR8IWZphMM"
+
+TELEGRAM_CHAT_ID = "1222350744"  # Chat ID burada
+
+
+
+
+
