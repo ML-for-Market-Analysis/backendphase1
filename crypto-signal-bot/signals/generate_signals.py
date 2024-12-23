@@ -1,5 +1,6 @@
 import sys
 import os
+import asyncio
 import pandas as pd
 import numpy as np
 
@@ -9,7 +10,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "../notifications"))
 # notification.py'den fonksiyonu import et
 from notifications.notification import send_telegram_message
 
-def generate_signals():
+async def generate_signals():
     """
     İşlenen verilere dayalı olarak alım-satım sinyalleri üretir ve Telegram mesajı gönderir.
     """
@@ -242,7 +243,7 @@ def generate_signals():
                 message += "\n".join(detail_lines)
 
                 try:
-                    send_telegram_message(message)
+                    await send_telegram_message(message)
                     print(f"[SIGNALS] Mesaj gönderildi: {coin_name}")
                 except Exception as e:
                     print(f"[SIGNALS] Mesaj gönderme hatası: {e}")
@@ -251,4 +252,4 @@ def generate_signals():
                 print(f"[SIGNALS] Hata oluştu ({file_name}): {e}")
 
 if __name__ == "__main__":
-    generate_signals()
+    asyncio.run(generate_signals())
