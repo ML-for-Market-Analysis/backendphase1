@@ -7,7 +7,7 @@ import numpy as np
 sys.path.append(os.path.join(os.path.dirname(__file__), "../notifications"))
 
 # notification.py'den fonksiyonu import et
-from notification import send_telegram_message
+from notifications.notification import send_telegram_message
 
 def generate_signals():
     """

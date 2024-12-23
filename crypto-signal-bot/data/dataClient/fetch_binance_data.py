@@ -54,6 +54,15 @@ def fetch_historical_klines(symbol, interval, start, end=None):
         start_ts = next_ts
         time.sleep(0.5)  # Rate-limit'e takılmamak için kısa bekleme
 
+    # Append the latest open candle
+    current_klines = client.get_klines(
+        symbol=symbol,
+        interval=interval,
+        limit=1  # Only fetch the latest kline
+    )
+    if current_klines:
+        output_data.append(current_klines[0])
+
     return output_data
 
 def to_dataframe(klines):
