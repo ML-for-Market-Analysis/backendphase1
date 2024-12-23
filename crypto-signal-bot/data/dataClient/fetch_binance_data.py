@@ -3,14 +3,11 @@ import pandas as pd
 from datetime import datetime, timedelta
 from binance.client import Client
 from config.settings import API_KEY, API_SECRET
+import pytz
 
 client = Client(API_KEY, API_SECRET)
 
 def fetch_historical_klines(symbol, interval, start, end=None):
-    """
-    Belirtilen sembol, zaman aralığı (interval) ve başlangıç/bitiş tarihleri arasında
-    tüm kline verilerini döngülü olarak çeker ve tek bir liste olarak geri döndürür.
-    """
     output_data = []
     max_limit = 1000
 
@@ -42,7 +39,7 @@ def fetch_historical_klines(symbol, interval, start, end=None):
         output_data += klines
 
         last_kline = klines[-1]
-        last_kline_close_time = last_kline[6]  # close_time
+        last_kline_close_time = last_kline[6]
         next_ts = last_kline_close_time + 1
 
         if next_ts >= end_ts:
@@ -53,25 +50,31 @@ def fetch_historical_klines(symbol, interval, start, end=None):
     return output_data
 
 def to_dataframe(klines):
-    """
-    get_historical_klines ile çekilen ham veriyi pandas DataFrame'e çevirir.
-    """
     df = pd.DataFrame(klines, columns=[
         'timestamp', 'open', 'high', 'low', 'close', 'volume',
         'close_time', 'quote_asset_volume', 'number_of_trades',
         'taker_buy_base', 'taker_buy_quote', 'ignore'
     ])
-    df = df[['timestamp', 'open', 'high', 'low', 'close', 'volume']]
+    df = df[['timestamp', 'open', 'high', 'low', 'close', 'volume', 'close_time']]
+
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
+    if df['timestamp'].dt.tz is None:
+        df['timestamp'] = df['timestamp'].dt.tz_localize('UTC').dt.tz_convert('Europe/Istanbul')
+    else:
+        df['timestamp'] = df['timestamp'].dt.tz_convert('Europe/Istanbul')
+
+    df['close_time'] = pd.to_datetime(df['close_time'], unit='ms')
+    if df['close_time'].dt.tz is None:
+        df['close_time'] = df['close_time'].dt.tz_localize('UTC').dt.tz_convert('Europe/Istanbul')
+    else:
+        df['close_time'] = df['close_time'].dt.tz_convert('Europe/Istanbul')
+
     df[['open', 'high', 'low', 'close', 'volume']] = \
         df[['open', 'high', 'low', 'close', 'volume']].astype(float)
+
     return df
 
 def get_top_symbols(limit=10):
-    """
-    Binance API'den en yüksek hacimli (limit kadar) işlem çiftlerini alır.
-    Sadece USDT ile biten işlem çiftlerini filtreler.
-    """
     try:
         tickers = client.get_ticker()
         sorted_tickers = sorted(tickers, key=lambda x: float(x['quoteVolume']), reverse=True)
@@ -82,15 +85,10 @@ def get_top_symbols(limit=10):
         return []
 
 def fetch_and_append_data(symbols):
-    """
-    Her bir sembol için 30 günlük 4 saatlik veriyi döngülü şekilde çekip,
-    CSV dosyalarına kaydeder veya ekler.
-    """
-    interval = '4h'  # <<< 4 saatlik veriler
+    interval = '4h'
     end_time = datetime.utcnow()
     start_time = end_time - timedelta(days=30)
 
-    # CSV'lerin kaydedileceği dizin:
     save_dir = os.path.join(os.path.dirname(__file__), "data")
     os.makedirs(save_dir, exist_ok=True)
 
@@ -100,12 +98,19 @@ def fetch_and_append_data(symbols):
             klines = fetch_historical_klines(symbol, interval, start_time, end_time)
             df = to_dataframe(klines)
 
-            df.fillna(method='ffill', inplace=True)
+            df = df.ffill()
 
             file_name = os.path.join(save_dir, f"{symbol}_latest.csv")
 
             if os.path.exists(file_name):
                 existing_data = pd.read_csv(file_name)
+
+                existing_data['timestamp'] = pd.to_datetime(existing_data['timestamp'])
+                if existing_data['timestamp'].dt.tz is None:
+                    existing_data['timestamp'] = existing_data['timestamp'].dt.tz_localize('UTC').dt.tz_convert('Europe/Istanbul')
+                else:
+                    existing_data['timestamp'] = existing_data['timestamp'].dt.tz_convert('Europe/Istanbul')
+
                 combined_data = pd.concat([existing_data, df]).drop_duplicates(subset='timestamp', keep='last')
                 combined_data.to_csv(file_name, index=False)
                 print(f"[FETCH] {symbol} verileri güncellendi: {file_name}")
@@ -113,8 +118,11 @@ def fetch_and_append_data(symbols):
                 df.to_csv(file_name, index=False)
                 print(f"[FETCH] {symbol} için yeni dosya oluşturuldu: {file_name}")
 
+            last_row = df.iloc[-1]
+            print(f"[FETCH] {symbol}: Son Kapanış Zamanı (GMT+3): {last_row['close_time']}")
+
         except Exception as e:
-            print(f"[FETCH] Hata oluştu ({symbol}): {e}")
+            print(f"[FETCH] Hata oluştu! Sembol: {symbol}, Hata Mesajı: {e}")
 
 if __name__ == "__main__":
     top_10_symbols = get_top_symbols(limit=10)

@@ -4,7 +4,7 @@ import numpy as np
 
 def calculate_indicators(file_path):
     """
-    Tek bir dosyada teknik indikatörleri hesaplar.
+    Tek bir dosyada teknik indikatörleri hesaplar ve işlenmiş sonuçları kaydeder.
     :param file_path: İşlenecek CSV dosyasının yolu.
     """
     try:
@@ -18,23 +18,15 @@ def calculate_indicators(file_path):
         # Eksik verileri doldur
         df.ffill(inplace=True)
 
-        # -----------------------------------------------
-        # RSI ve diğer indikatörler
-        # TradingView ile daha uyumlu sonuç almak için
-        # Wilder RSI fonksiyonunu kullanıyoruz.
-        # -----------------------------------------------
-        df['RSI'] = wilder_rsi(df['close'], period=14)  # "7" yazıyorsunuz, dilediğiniz periyodu verebilirsiniz.
+        # Teknik indikatör hesaplamaları
+        df['RSI'] = wilder_rsi(df['close'], period=14)
         df['Inverse_Fisher_RSI'] = inverse_fisher_transform(df['RSI'])
 
         df['MACD'], df['MACD_signal'], df['MACD_hist'] = calculate_macd(df['close'], 12, 26, 9)
         df['upper_band'], df['middle_band'], df['lower_band'] = calculate_bollinger_bands(df['close'], 20, 2)
         df = calculate_fibonacci(df)
 
-        # -----------------------------------------------------------------
-        #  İşlenmiş dosyaların kaydedileceği klasör:
-        #  Burada "crypto-signal-bot/data/processedData" yolunu kullanıyoruz.
-        #  Proje yapınıza göre "../" miktarını düzenleyebilirsiniz.
-        # -----------------------------------------------------------------
+        # İşlenmiş dosyaların kaydedileceği klasör
         processed_dir = os.path.join(os.path.dirname(__file__), "../data/processedData")
         processed_dir = os.path.abspath(processed_dir)
         os.makedirs(processed_dir, exist_ok=True)
@@ -49,54 +41,43 @@ def calculate_indicators(file_path):
     except Exception as e:
         print(f"Hata oluştu: {file_path} -> {e}")
 
-
 # ------------------------------------------------------------
-# Wilder RSI fonksiyonu (TradingView ile daha uyumlu)
+# Teknik İndikatör Fonksiyonları
 # ------------------------------------------------------------
 def wilder_rsi(prices, period=14):
     """
     Wilder'ın (RMA) yaklaşımıyla RSI hesaplar.
-    TradingView'deki "RSI" ile daha uyumlu sonuç alırsınız.
     """
-    # Fiyat farkları
     delta = prices.diff()
-    # Pozitif (kazanç) ve negatif (kayıp) kısımları ayır
     gain = delta.clip(lower=0)
     loss = -delta.clip(upper=0)
 
-    # İlk ortalamaları simple average ile başlatıyoruz
-    avg_gain = gain.rolling(period).mean().dropna()
-    avg_loss = loss.rolling(period).mean().dropna()
+    avg_gain = gain.rolling(window=period).mean().dropna()
+    avg_loss = loss.rolling(window=period).mean().dropna()
 
-    # RSI serisini oluşturmak için boş bir seri:
     rsi_series = pd.Series(index=prices.index, dtype=float)
 
-    # Eğer yeterli satır yoksa erkenden çıkabiliriz
     if len(avg_gain) == 0 or len(avg_loss) == 0:
         return rsi_series
 
-    # avg_gain/avg_loss'ın başladığı ilk index
     start_idx = avg_gain.index[0]
 
-    # İlk RSI değerini hesaplarken
     if avg_loss.loc[start_idx] == 0:
         rsi_series.loc[start_idx] = 100
     else:
         rs = avg_gain.loc[start_idx] / avg_loss.loc[start_idx]
         rsi_series.loc[start_idx] = 100 - (100 / (1 + rs))
 
-    # Şimdi geri kalan satırlar için Wilder (RMA) formülü:
     for i in range(start_idx + 1, len(prices)):
         if i not in prices.index:
             continue
 
-        prev_avg_gain = avg_gain.loc[i-1] if (i-1 in avg_gain.index) else avg_gain.loc[start_idx]
-        prev_avg_loss = avg_loss.loc[i-1] if (i-1 in avg_loss.index) else avg_loss.loc[start_idx]
+        prev_avg_gain = avg_gain.loc[i - 1] if (i - 1 in avg_gain.index) else avg_gain.loc[start_idx]
+        prev_avg_loss = avg_loss.loc[i - 1] if (i - 1 in avg_loss.index) else avg_loss.loc[start_idx]
 
         this_gain = gain.loc[i] if i in gain.index else 0
         this_loss = loss.loc[i] if i in loss.index else 0
 
-        # RMA formülü
         new_avg_gain = (prev_avg_gain * (period - 1) + this_gain) / period
         new_avg_loss = (prev_avg_loss * (period - 1) + this_loss) / period
 
@@ -145,11 +126,7 @@ def calculate_fibonacci(df):
 
     return df
 
-
 if __name__ == "__main__":
-    # Bu kod dosyası "crypto-signal-bot/" altındayken
-    # işlenmemiş CSV’leri "../data/dataClient/data" klasöründen,
-    # işlenmişleri "../data/processedData" klasörüne kaydediyoruz.
     data_dir = os.path.join(os.path.dirname(__file__), "../data/dataClient/data")
     data_dir = os.path.abspath(data_dir)
 
@@ -162,3 +139,4 @@ if __name__ == "__main__":
                 file_path = os.path.join(data_dir, file_name)
                 print(f"İşleniyor: {file_path}")
                 calculate_indicators(file_path)
+

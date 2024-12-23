@@ -18,15 +18,21 @@ def main():
 
         print("📈 İndikatör hesaplama işlemi başlatılıyor...")
         # İşlenmiş verilerle indikatör hesaplama işlemi başlat
-        # Bu işlem için doğru fonksiyon çağrılmalı
-        data_dir = os.path.join(os.path.dirname(__file__), "../data/dataClient/data")
+        data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "data/dataClient/data"))
+        print(f"İndikatör hesaplanacak veri klasörü: {data_dir}")
+
         if not os.path.exists(data_dir):
-            print(f"Veri klasörü bulunamadı: {data_dir}")
+            print(f"🚨 Veri klasörü bulunamadı: {data_dir}")
         else:
             for file_name in os.listdir(data_dir):
                 if file_name.endswith("_latest.csv"):
                     file_path = os.path.join(data_dir, file_name)
-                    calculate_indicators(file_path)  # İndikatör hesaplama fonksiyonu
+                    print(f"İşleniyor: {file_path}")
+                    try:
+                        calculate_indicators(file_path)  # İndikatör hesaplama fonksiyonu
+                        print(f"✅ İndikatörler hesaplandı: {file_name}")
+                    except Exception as e:
+                        print(f"🚨 Hata oluştu ({file_name}): {e}")
         print("✅ İndikatör hesaplama tamamlandı.")
 
         print("🔔 Sinyal üretimi başlatılıyor...")
