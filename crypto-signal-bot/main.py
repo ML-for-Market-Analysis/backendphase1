@@ -1,18 +1,22 @@
 import os
-from data.dataClient.fetch_binance_data import fetch_and_append_data
+import schedule
+import time
+from data.dataClient.fetch_binance_data import fetch_and_append_data, get_top_symbols
 from indicators.calculate_indicators import calculate_indicators
 from signals.generate_signals import generate_signals
 from notifications.notification import send_telegram_message
 
-
-def main():
+def run_bot():
     """
     Tüm süreçlerin sırasıyla yürütüldüğü ana fonksiyon.
     """
     try:
         print("📊 Veri çekme işlemi başlatılıyor...")
-        # İlk 50 işlem çiftini al
-        top_50_symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT']  # Gerçekten ilk 50'yi buraya ekleyebilirsiniz
+        # İlk 50 işlem çiftini dinamik olarak al
+        top_50_symbols = get_top_symbols(limit=50)
+        if not top_50_symbols:
+            print("🚨 Hiç sembol bulunamadı, veri çekme işlemi iptal ediliyor.")
+            return
         fetch_and_append_data(top_50_symbols)  # Binance API'den verileri çek ve kaydet
         print("✅ Veri çekme tamamlandı.")
 
@@ -49,11 +53,16 @@ def main():
         print(error_message)
         send_telegram_message(error_message)
 
+def main():
+    # Belirli saatlerde botu çalıştır
+    schedule.every(1).minutes.do(run_bot)  # Her 1 dakikada bir çalıştır
+
+
+    print("🔄 Sinyal botu çalışmaya başladı. Belirlenen saatlerde otomatik olarak çalışacaktır.")
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)  # 1 saniye bekleyerek CPU kullanımını azaltır
 
 if __name__ == "__main__":
-    # Çalışma dizinini kontrol et ve ayarla
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(current_dir)
-
-    # Ana işlemleri başlat
     main()

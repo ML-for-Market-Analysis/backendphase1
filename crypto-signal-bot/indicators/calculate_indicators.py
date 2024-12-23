@@ -3,99 +3,102 @@ import pandas as pd
 import numpy as np
 
 def calculate_indicators(file_path):
-    """
-    Tek bir dosyada teknik indikatörleri hesaplar ve işlenmiş sonuçları kaydeder.
-    :param file_path: İşlenecek CSV dosyasının yolu.
-    """
     try:
-        df = pd.read_csv(file_path)
+        # 1) CSV'den open_time, close_time sütunlarını parse edeceğiz
+        df = pd.read_csv(file_path, parse_dates=['open_time', 'close_time'])
 
-        required_columns = {'open', 'high', 'low', 'close', 'volume'}
+        # Eger CSV’de 'timestamp' yoksa, parse_dates=['timestamp'] parametresi hata verir.
+        # Bu kodda 'timestamp' yerine 'open_time' ve 'close_time' var diye varsayıyoruz.
+
+        required_columns = {'open_time', 'close_time', 'open', 'high', 'low', 'close', 'volume'}
         if not required_columns.issubset(df.columns):
-            print(f"Gerekli sütunlar eksik: {file_path}")
+            print(f"Eksik sütunlar: {required_columns - set(df.columns)} -> {file_path}")
             return
 
-        # Eksik verileri doldur
-        df.ffill(inplace=True)
+        # 2) Eksik değer kontrolü ve doldurma
+        if df.isnull().any().any():
+            print(f"Veride eksik değer var (ffill uygulanacak): {file_path}")
+            df.fillna(method='ffill', inplace=True)
 
-        # Teknik indikatör hesaplamaları
-        df['RSI'] = wilder_rsi(df['close'], period=14)
-        df['Inverse_Fisher_RSI'] = inverse_fisher_transform(df['RSI'])
+        # 3) Zaman damgasını index olarak ayarla ve sırala
+        df.set_index('open_time', inplace=True)
+        df.sort_index(inplace=True)
 
-        df['MACD'], df['MACD_signal'], df['MACD_hist'] = calculate_macd(df['close'], 12, 26, 9)
-        df['upper_band'], df['middle_band'], df['lower_band'] = calculate_bollinger_bands(df['close'], 20, 2)
-        df = calculate_fibonacci(df)
+        # (İSTEĞE BAĞLI) Eğer veriniz UTC olarak geliyorsa (ve siz UTC’de tutuyorsanız),
+        # ek bir tz_localize / tz_convert yapmanıza gerek kalmaz.
+        # df.index = df.index.tz_localize('UTC')  # Örnek: eğer datetime naive ise.
 
-        # İşlenmiş dosyaların kaydedileceği klasör
+        # 4) 4 saatlik veriyi "7,11,15,19,23" gibi saatlere kaydırmak için:
+        #    - 3 saat geri kaydır
+        #    - resample('4h')
+        #    - indexi tekrar 3 saat ileri al
+        # Böylece periyotların kapanışı (sağ sınır) 7,11,15,19,23 vb. olur.
+
+        # 4.1) 3 saat geri kaydır
+        df.index = df.index - pd.Timedelta(hours=3)
+
+        # 4.2) 4 saatlik muma dönüştürme
+        df_4h = df.resample('4h', label='right', closed='right').agg({
+            'open': 'first',
+            'high': 'max',
+            'low': 'min',
+            'close': 'last',
+            'volume': 'sum'
+        })
+
+        # 4.3) Indexi tekrar 3 saat ileri al
+        df_4h.index = df_4h.index + pd.Timedelta(hours=3)
+
+        # open/high/low/close/volume NaN olan 4h satırları at
+        df_4h.dropna(subset=['open','high','low','close','volume'], inplace=True)
+
+        # 5) open_time'ı tekrar kolona çevir
+        df_4h.reset_index(inplace=True)
+        df_4h.rename(columns={'index': 'open_time'}, inplace=True)
+
+        # 6) Boş mu kontrol et
+        if df_4h.empty:
+            print(f"[INDICATORS] Uyarı: {file_path} -> 4h dataframe boş, indikatör hesaplanamadı.")
+            return
+
+        # 7) Teknik indikatör hesaplamaları
+        #    (Aşağıdaki fonksiyonların hepsi alt kısımda tanımlanmıştır.)
+        df_4h['RSI'] = calculate_rsi(df_4h['close'], 14)
+        rsi_5 = calculate_rsi(df_4h['close'], 5)
+        df_4h['Inverse_Fisher_RSI'] = inverse_fisher_transform(rsi_5.rolling(window=9).mean())
+        df_4h['MACD'], df_4h['MACD_signal'], df_4h['MACD_hist'] = calculate_macd(df_4h['close'], 12, 26, 9)
+        df_4h['upper_band'], df_4h['middle_band'], df_4h['lower_band'] = calculate_bollinger_bands(df_4h['close'], 20, 2)
+        df_4h = calculate_fibonacci(df_4h)
+        df_4h['ADX'] = calculate_adx(df_4h['high'], df_4h['low'], df_4h['close'], 14)
+        df_4h['Stochastic_%K'], df_4h['Stochastic_%D'] = calculate_stochastic(df_4h['high'], df_4h['low'], df_4h['close'], 14, 3)
+        df_4h['ATR'] = calculate_atr(df_4h['high'], df_4h['low'], df_4h['close'], 14)
+        df_4h['ROC'] = calculate_roc(df_4h['close'], 10)
+        df_4h['CCI'] = calculate_cci(df_4h['high'], df_4h['low'], df_4h['close'], 20)
+
+        # 8) İşlenmiş veriyi kaydetme
         processed_dir = os.path.join(os.path.dirname(__file__), "../data/processedData")
-        processed_dir = os.path.abspath(processed_dir)
         os.makedirs(processed_dir, exist_ok=True)
-
-        # "_latest.csv" => "_processed.csv"
         output_filename = os.path.basename(file_path).replace("_latest.csv", "_processed.csv")
         output_path = os.path.join(processed_dir, output_filename)
-
-        df.to_csv(output_path, index=False)
+        df_4h.to_csv(output_path, index=False)
         print(f"İşlenmiş dosya kaydedildi: {output_path}")
 
     except Exception as e:
         print(f"Hata oluştu: {file_path} -> {e}")
 
-# ------------------------------------------------------------
-# Teknik İndikatör Fonksiyonları
-# ------------------------------------------------------------
-def wilder_rsi(prices, period=14):
-    """
-    Wilder'ın (RMA) yaklaşımıyla RSI hesaplar.
-    """
+# Aşağıda kullanılan indikatör fonksiyonları:
+
+def calculate_rsi(prices, period=14):
     delta = prices.diff()
-    gain = delta.clip(lower=0)
-    loss = -delta.clip(upper=0)
-
-    avg_gain = gain.rolling(window=period).mean().dropna()
-    avg_loss = loss.rolling(window=period).mean().dropna()
-
-    rsi_series = pd.Series(index=prices.index, dtype=float)
-
-    if len(avg_gain) == 0 or len(avg_loss) == 0:
-        return rsi_series
-
-    start_idx = avg_gain.index[0]
-
-    if avg_loss.loc[start_idx] == 0:
-        rsi_series.loc[start_idx] = 100
-    else:
-        rs = avg_gain.loc[start_idx] / avg_loss.loc[start_idx]
-        rsi_series.loc[start_idx] = 100 - (100 / (1 + rs))
-
-    for i in range(start_idx + 1, len(prices)):
-        if i not in prices.index:
-            continue
-
-        prev_avg_gain = avg_gain.loc[i - 1] if (i - 1 in avg_gain.index) else avg_gain.loc[start_idx]
-        prev_avg_loss = avg_loss.loc[i - 1] if (i - 1 in avg_loss.index) else avg_loss.loc[start_idx]
-
-        this_gain = gain.loc[i] if i in gain.index else 0
-        this_loss = loss.loc[i] if i in loss.index else 0
-
-        new_avg_gain = (prev_avg_gain * (period - 1) + this_gain) / period
-        new_avg_loss = (prev_avg_loss * (period - 1) + this_loss) / period
-
-        avg_gain.loc[i] = new_avg_gain
-        avg_loss.loc[i] = new_avg_loss
-
-        if new_avg_loss == 0:
-            rsi_series.loc[i] = 100
-        else:
-            rs = new_avg_gain / new_avg_loss
-            rsi_series.loc[i] = 100 - (100 / (1 + rs))
-
-    return rsi_series
+    gain = delta.where(delta > 0, 0)
+    loss = -delta.where(delta < 0, 0)
+    avg_gain = gain.rolling(window=period).mean()
+    avg_loss = loss.rolling(window=period).mean()
+    rs = avg_gain / avg_loss.replace(0, np.nan)
+    rsi = 100 - (100 / (1 + rs))
+    return rsi
 
 def inverse_fisher_transform(rsi_series):
-    """
-    RSI (0-100) değerini alıp inverse fisher RSI oluşturur.
-    """
     transformed = (np.exp(2 * (rsi_series / 100)) - 1) / (np.exp(2 * (rsi_series / 100)) + 1)
     return transformed
 
@@ -117,26 +120,62 @@ def calculate_bollinger_bands(series, period, std_dev):
 def calculate_fibonacci(df):
     high = df['high'].max()
     low = df['low'].min()
-
     df['Fibonacci_236'] = high - (high - low) * 0.236
     df['Fibonacci_382'] = high - (high - low) * 0.382
     df['Fibonacci_50'] = high - (high - low) * 0.5
     df['Fibonacci_618'] = high - (high - low) * 0.618
     df['Fibonacci_786'] = high - (high - low) * 0.786
-
     return df
+
+def calculate_adx(high, low, close, period):
+    plus_dm = high.diff().clip(lower=0)
+    minus_dm = -low.diff().clip(upper=0)
+    tr = pd.concat([
+        high - low,
+        abs(high - close.shift()),
+        abs(low - close.shift())
+    ], axis=1).max(axis=1)
+    atr = tr.rolling(window=period).mean()
+    plus_di = 100 * (plus_dm.rolling(window=period).mean() / atr)
+    minus_di = 100 * (minus_dm.rolling(window=period).mean() / atr)
+    dx = 100 * abs(plus_di - minus_di) / (plus_di + minus_di)
+    adx = dx.rolling(window=period).mean()
+    return adx
+
+def calculate_stochastic(high, low, close, k_period, d_period):
+    low_min = low.rolling(window=k_period).min()
+    high_max = high.rolling(window=k_period).max()
+    k = 100 * (close - low_min) / (high_max - low_min)
+    d = k.rolling(window=d_period).mean()
+    return k, d
+
+def calculate_atr(high, low, close, period):
+    tr = pd.concat([
+        high - low,
+        abs(high - close.shift()),
+        abs(low - close.shift())
+    ], axis=1).max(axis=1)
+    atr = tr.rolling(window=period).mean()
+    return atr
+
+def calculate_roc(close, period):
+    roc = (close - close.shift(period)) / close.shift(period) * 100
+    return roc
+
+def calculate_cci(high, low, close, period):
+    tp = (high + low + close) / 3
+    sma = tp.rolling(window=period).mean()
+    mean_deviation = tp.rolling(window=period).apply(lambda x: np.mean(np.abs(x - x.mean())), raw=True)
+    cci = (tp - sma) / (0.015 * mean_deviation)
+    return cci
+
 
 if __name__ == "__main__":
     data_dir = os.path.join(os.path.dirname(__file__), "../data/dataClient/data")
-    data_dir = os.path.abspath(data_dir)
-
-    print("İşlenmemiş veri klasörü:", data_dir)
     if not os.path.exists(data_dir):
         print(f"Veri klasörü bulunamadı: {data_dir}")
     else:
         for file_name in os.listdir(data_dir):
             if file_name.endswith("_latest.csv"):
                 file_path = os.path.join(data_dir, file_name)
-                print(f"İşleniyor: {file_path}")
                 calculate_indicators(file_path)
-
