@@ -64,6 +64,15 @@ def fetch_historical_klines(symbol, interval, start, end=None):
     except Exception as e:
         print(f"[FETCH] Mevcut açık klin alınırken hata oluştu: {e}")
 
+    # Append the latest open candle
+    current_klines = client.get_klines(
+        symbol=symbol,
+        interval=interval,
+        limit=1  # Only fetch the latest kline
+    )
+    if current_klines:
+        output_data.append(current_klines[0])
+
     return output_data
 
 def to_dataframe(klines):
