@@ -55,7 +55,7 @@ def run_bot():
 
 def main():
     # Belirli saatlerde botu çalıştır
-    schedule.every(1).minutes.do(run_bot)  # Her 1 dakikada bir çalıştır
+    schedule.every(1).minute.do(run_bot)  # Her 1 dakikada bir çalıştır
 
 
     print("🔄 Sinyal botu çalışmaya başladı. Belirlenen saatlerde otomatik olarak çalışacaktır.")

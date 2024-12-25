@@ -1,0 +1,224 @@
+2024-12-23 18:16:01,804 - INFO - [FETCH] BTCUSDT - 1h verileri çekiliyor... (1/50)
+2024-12-23 18:16:04,000 - INFO - [FETCH] BTCUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/BTCUSDT_latest.csv
+2024-12-23 18:16:04,000 - INFO - [FETCH] BTCUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 15:59:59.999000+03:00
+2024-12-23 18:16:04,000 - INFO - [OPEN_PRICE] BTCUSDT anlık açılış fiyatı: 94389.67
+2024-12-23 18:16:04,506 - INFO - [FETCH] ETHUSDT - 1h verileri çekiliyor... (2/50)
+2024-12-23 18:16:06,636 - INFO - [FETCH] ETHUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/ETHUSDT_latest.csv
+2024-12-23 18:16:06,636 - INFO - [FETCH] ETHUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 15:59:59.999000+03:00
+2024-12-23 18:16:06,636 - INFO - [OPEN_PRICE] ETHUSDT anlık açılış fiyatı: 3313.12
+2024-12-23 18:16:07,138 - INFO - [FETCH] USDCUSDT - 1h verileri çekiliyor... (3/50)
+2024-12-23 18:16:09,255 - INFO - [FETCH] USDCUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/USDCUSDT_latest.csv
+2024-12-23 18:16:09,256 - INFO - [FETCH] USDCUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 15:59:59.999000+03:00
+2024-12-23 18:16:09,256 - INFO - [OPEN_PRICE] USDCUSDT anlık açılış fiyatı: 1.0014
+2024-12-23 18:16:09,761 - INFO - [FETCH] FDUSDUSDT - 1h verileri çekiliyor... (4/50)
+2024-12-23 18:16:11,920 - INFO - [FETCH] FDUSDUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/FDUSDUSDT_latest.csv
+2024-12-23 18:16:11,921 - INFO - [FETCH] FDUSDUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 15:59:59.999000+03:00
+2024-12-23 18:16:11,921 - INFO - [OPEN_PRICE] FDUSDUSDT anlık açılış fiyatı: 1.0022
+2024-12-23 18:16:12,426 - INFO - [FETCH] XRPUSDT - 1h verileri çekiliyor... (5/50)
+2024-12-23 18:16:14,590 - INFO - [FETCH] XRPUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/XRPUSDT_latest.csv
+2024-12-23 18:16:14,590 - INFO - [FETCH] XRPUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 15:59:59.999000+03:00
+2024-12-23 18:16:14,590 - INFO - [OPEN_PRICE] XRPUSDT anlık açılış fiyatı: 2.1647
+2024-12-23 18:16:15,095 - INFO - [FETCH] SOLUSDT - 1h verileri çekiliyor... (6/50)
+2024-12-23 18:16:17,332 - INFO - [FETCH] SOLUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/SOLUSDT_latest.csv
+2024-12-23 18:16:17,332 - INFO - [FETCH] SOLUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 15:59:59.999000+03:00
+2024-12-23 18:16:17,332 - INFO - [OPEN_PRICE] SOLUSDT anlık açılış fiyatı: 183.81
+2024-12-23 22:35:04,390 - INFO - [FETCH] BTCUSDT - 1h verileri çekiliyor... (1/50)
+2024-12-23 22:35:06,730 - INFO - [FETCH] BTCUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/BTCUSDT_latest.csv
+2024-12-23 22:35:06,730 - INFO - [FETCH] BTCUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:06,730 - INFO - [OPEN_PRICE] BTCUSDT anlık açılış fiyatı: 92758.54
+2024-12-23 22:35:07,235 - INFO - [FETCH] ETHUSDT - 1h verileri çekiliyor... (2/50)
+2024-12-23 22:35:09,618 - INFO - [FETCH] ETHUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/ETHUSDT_latest.csv
+2024-12-23 22:35:09,618 - INFO - [FETCH] ETHUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:09,618 - INFO - [OPEN_PRICE] ETHUSDT anlık açılış fiyatı: 3304.99
+2024-12-23 22:35:10,123 - INFO - [FETCH] USDCUSDT - 1h verileri çekiliyor... (3/50)
+2024-12-23 22:35:12,843 - INFO - [FETCH] USDCUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/USDCUSDT_latest.csv
+2024-12-23 22:35:12,843 - INFO - [FETCH] USDCUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:12,843 - INFO - [OPEN_PRICE] USDCUSDT anlık açılış fiyatı: 1.0016
+2024-12-23 22:35:13,348 - INFO - [FETCH] FDUSDUSDT - 1h verileri çekiliyor... (4/50)
+2024-12-23 22:35:15,794 - INFO - [FETCH] FDUSDUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/FDUSDUSDT_latest.csv
+2024-12-23 22:35:15,794 - INFO - [FETCH] FDUSDUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:15,794 - INFO - [OPEN_PRICE] FDUSDUSDT anlık açılış fiyatı: 1.0031
+2024-12-23 22:35:16,299 - INFO - [FETCH] XRPUSDT - 1h verileri çekiliyor... (5/50)
+2024-12-23 22:35:18,653 - INFO - [FETCH] XRPUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/XRPUSDT_latest.csv
+2024-12-23 22:35:18,654 - INFO - [FETCH] XRPUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:18,654 - INFO - [OPEN_PRICE] XRPUSDT anlık açılış fiyatı: 2.1588
+2024-12-23 22:35:19,159 - INFO - [FETCH] SOLUSDT - 1h verileri çekiliyor... (6/50)
+2024-12-23 22:35:21,550 - INFO - [FETCH] SOLUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/SOLUSDT_latest.csv
+2024-12-23 22:35:21,551 - INFO - [FETCH] SOLUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:21,551 - INFO - [OPEN_PRICE] SOLUSDT anlık açılış fiyatı: 185.11
+2024-12-23 22:35:22,056 - INFO - [FETCH] DOGEUSDT - 1h verileri çekiliyor... (7/50)
+2024-12-23 22:35:24,921 - INFO - [FETCH] DOGEUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/DOGEUSDT_latest.csv
+2024-12-23 22:35:24,921 - INFO - [FETCH] DOGEUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:24,921 - INFO - [OPEN_PRICE] DOGEUSDT anlık açılış fiyatı: 0.31013
+2024-12-23 22:35:25,426 - INFO - [FETCH] BNBUSDT - 1h verileri çekiliyor... (8/50)
+2024-12-23 22:35:27,894 - INFO - [FETCH] BNBUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/BNBUSDT_latest.csv
+2024-12-23 22:35:27,894 - INFO - [FETCH] BNBUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:27,894 - INFO - [OPEN_PRICE] BNBUSDT anlık açılış fiyatı: 681.53
+2024-12-23 22:35:28,398 - INFO - [FETCH] SUIUSDT - 1h verileri çekiliyor... (9/50)
+2024-12-23 22:35:30,866 - INFO - [FETCH] SUIUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/SUIUSDT_latest.csv
+2024-12-23 22:35:30,866 - INFO - [FETCH] SUIUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:30,866 - INFO - [OPEN_PRICE] SUIUSDT anlık açılış fiyatı: 4.27
+2024-12-23 22:35:31,371 - INFO - [FETCH] PEPEUSDT - 1h verileri çekiliyor... (10/50)
+2024-12-23 22:35:33,703 - INFO - [FETCH] PEPEUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/PEPEUSDT_latest.csv
+2024-12-23 22:35:33,703 - INFO - [FETCH] PEPEUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:33,703 - INFO - [OPEN_PRICE] PEPEUSDT anlık açılış fiyatı: 1.763e-05
+2024-12-23 22:35:34,209 - INFO - [FETCH] USUALUSDT - 1h verileri çekiliyor... (11/50)
+2024-12-23 22:35:35,105 - INFO - [FETCH] USUALUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/USUALUSDT_latest.csv
+2024-12-23 22:35:35,106 - INFO - [FETCH] USUALUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:35,106 - INFO - [OPEN_PRICE] USUALUSDT anlık açılış fiyatı: 1.1596
+2024-12-23 22:35:35,611 - INFO - [FETCH] TRXUSDT - 1h verileri çekiliyor... (12/50)
+2024-12-23 22:35:38,137 - INFO - [FETCH] TRXUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/TRXUSDT_latest.csv
+2024-12-23 22:35:38,137 - INFO - [FETCH] TRXUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:38,138 - INFO - [OPEN_PRICE] TRXUSDT anlık açılış fiyatı: 0.2495
+2024-12-23 22:35:38,643 - INFO - [FETCH] ADAUSDT - 1h verileri çekiliyor... (13/50)
+2024-12-23 22:35:41,077 - INFO - [FETCH] ADAUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/ADAUSDT_latest.csv
+2024-12-23 22:35:41,077 - INFO - [FETCH] ADAUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:41,077 - INFO - [OPEN_PRICE] ADAUSDT anlık açılış fiyatı: 0.875
+2024-12-23 22:35:41,582 - INFO - [FETCH] ENAUSDT - 1h verileri çekiliyor... (14/50)
+2024-12-23 22:35:43,955 - INFO - [FETCH] ENAUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/ENAUSDT_latest.csv
+2024-12-23 22:35:43,955 - INFO - [FETCH] ENAUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:43,955 - INFO - [OPEN_PRICE] ENAUSDT anlık açılış fiyatı: 1.0187
+2024-12-23 22:35:44,460 - INFO - [FETCH] AAVEUSDT - 1h verileri çekiliyor... (15/50)
+2024-12-23 22:35:46,834 - INFO - [FETCH] AAVEUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/AAVEUSDT_latest.csv
+2024-12-23 22:35:46,834 - INFO - [FETCH] AAVEUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:46,834 - INFO - [OPEN_PRICE] AAVEUSDT anlık açılış fiyatı: 352.47
+2024-12-23 22:35:47,339 - INFO - [FETCH] HBARUSDT - 1h verileri çekiliyor... (16/50)
+2024-12-23 22:35:49,694 - INFO - [FETCH] HBARUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/HBARUSDT_latest.csv
+2024-12-23 22:35:49,695 - INFO - [FETCH] HBARUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:49,695 - INFO - [OPEN_PRICE] HBARUSDT anlık açılış fiyatı: 0.26783
+2024-12-23 22:35:50,198 - INFO - [FETCH] LINKUSDT - 1h verileri çekiliyor... (17/50)
+2024-12-23 22:35:52,571 - INFO - [FETCH] LINKUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/LINKUSDT_latest.csv
+2024-12-23 22:35:52,572 - INFO - [FETCH] LINKUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:52,572 - INFO - [OPEN_PRICE] LINKUSDT anlık açılış fiyatı: 22.34
+2024-12-23 22:35:53,077 - INFO - [FETCH] PNUTUSDT - 1h verileri çekiliyor... (18/50)
+2024-12-23 22:35:55,514 - INFO - [FETCH] PNUTUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/PNUTUSDT_latest.csv
+2024-12-23 22:35:55,514 - INFO - [FETCH] PNUTUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:55,514 - INFO - [OPEN_PRICE] PNUTUSDT anlık açılış fiyatı: 0.6973
+2024-12-23 22:35:56,020 - INFO - [FETCH] MOVEUSDT - 1h verileri çekiliyor... (19/50)
+2024-12-23 22:35:56,953 - INFO - [FETCH] MOVEUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/MOVEUSDT_latest.csv
+2024-12-23 22:35:56,953 - INFO - [FETCH] MOVEUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:56,953 - INFO - [OPEN_PRICE] MOVEUSDT anlık açılış fiyatı: 0.8022
+2024-12-23 22:35:57,458 - INFO - [FETCH] WIFUSDT - 1h verileri çekiliyor... (20/50)
+2024-12-23 22:35:59,842 - INFO - [FETCH] WIFUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/WIFUSDT_latest.csv
+2024-12-23 22:35:59,842 - INFO - [FETCH] WIFUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:35:59,842 - INFO - [OPEN_PRICE] WIFUSDT anlık açılış fiyatı: 1.9
+2024-12-23 22:36:00,347 - INFO - [FETCH] ZENUSDT - 1h verileri çekiliyor... (21/50)
+2024-12-23 22:36:02,816 - INFO - [FETCH] ZENUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/ZENUSDT_latest.csv
+2024-12-23 22:36:02,816 - INFO - [FETCH] ZENUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:02,816 - INFO - [OPEN_PRICE] ZENUSDT anlık açılış fiyatı: 30.5
+2024-12-23 22:36:03,322 - INFO - [FETCH] CRVUSDT - 1h verileri çekiliyor... (22/50)
+2024-12-23 22:36:05,766 - INFO - [FETCH] CRVUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/CRVUSDT_latest.csv
+2024-12-23 22:36:05,767 - INFO - [FETCH] CRVUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:05,767 - INFO - [OPEN_PRICE] CRVUSDT anlık açılış fiyatı: 0.8534
+2024-12-23 22:36:06,272 - INFO - [FETCH] AVAXUSDT - 1h verileri çekiliyor... (23/50)
+2024-12-23 22:36:08,549 - INFO - [FETCH] AVAXUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/AVAXUSDT_latest.csv
+2024-12-23 22:36:08,549 - INFO - [FETCH] AVAXUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:08,549 - INFO - [OPEN_PRICE] AVAXUSDT anlık açılış fiyatı: 36.62
+2024-12-23 22:36:09,054 - INFO - [FETCH] UNIUSDT - 1h verileri çekiliyor... (24/50)
+2024-12-23 22:36:11,224 - INFO - [FETCH] UNIUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/UNIUSDT_latest.csv
+2024-12-23 22:36:11,224 - INFO - [FETCH] UNIUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:11,224 - INFO - [OPEN_PRICE] UNIUSDT anlık açılış fiyatı: 13.51
+2024-12-23 22:36:11,729 - INFO - [FETCH] WLDUSDT - 1h verileri çekiliyor... (25/50)
+2024-12-23 22:36:14,231 - INFO - [FETCH] WLDUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/WLDUSDT_latest.csv
+2024-12-23 22:36:14,231 - INFO - [FETCH] WLDUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:14,231 - INFO - [OPEN_PRICE] WLDUSDT anlık açılış fiyatı: 2.165
+2024-12-23 22:36:14,736 - INFO - [FETCH] LTCUSDT - 1h verileri çekiliyor... (26/50)
+2024-12-23 22:36:16,890 - INFO - [FETCH] LTCUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/LTCUSDT_latest.csv
+2024-12-23 22:36:16,891 - INFO - [FETCH] LTCUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:16,891 - INFO - [OPEN_PRICE] LTCUSDT anlık açılış fiyatı: 101.6
+2024-12-23 22:36:17,396 - INFO - [FETCH] FTMUSDT - 1h verileri çekiliyor... (27/50)
+2024-12-23 22:36:19,570 - INFO - [FETCH] FTMUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/FTMUSDT_latest.csv
+2024-12-23 22:36:19,570 - INFO - [FETCH] FTMUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:19,571 - INFO - [OPEN_PRICE] FTMUSDT anlık açılış fiyatı: 0.966
+2024-12-23 22:36:20,076 - INFO - [FETCH] NEIROUSDT - 1h verileri çekiliyor... (28/50)
+2024-12-23 22:36:22,249 - INFO - [FETCH] NEIROUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/NEIROUSDT_latest.csv
+2024-12-23 22:36:22,249 - INFO - [FETCH] NEIROUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:22,249 - INFO - [OPEN_PRICE] NEIROUSDT anlık açılış fiyatı: 0.00098619
+2024-12-23 22:36:22,754 - INFO - [FETCH] SHIBUSDT - 1h verileri çekiliyor... (29/50)
+2024-12-23 22:36:24,970 - INFO - [FETCH] SHIBUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/SHIBUSDT_latest.csv
+2024-12-23 22:36:24,970 - INFO - [FETCH] SHIBUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:24,970 - INFO - [OPEN_PRICE] SHIBUSDT anlık açılış fiyatı: 2.155e-05
+2024-12-23 22:36:25,473 - INFO - [FETCH] APTUSDT - 1h verileri çekiliyor... (30/50)
+2024-12-23 22:36:27,699 - INFO - [FETCH] APTUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/APTUSDT_latest.csv
+2024-12-23 22:36:27,699 - INFO - [FETCH] APTUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:27,699 - INFO - [OPEN_PRICE] APTUSDT anlık açılış fiyatı: 9.2
+2024-12-23 22:36:28,204 - INFO - [FETCH] PENGUUSDT - 1h verileri çekiliyor... (31/50)
+2024-12-23 22:36:29,092 - INFO - [FETCH] PENGUUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/PENGUUSDT_latest.csv
+2024-12-23 22:36:29,092 - INFO - [FETCH] PENGUUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:29,092 - INFO - [OPEN_PRICE] PENGUUSDT anlık açılış fiyatı: 0.027204
+2024-12-23 22:36:29,596 - INFO - [FETCH] ARBUSDT - 1h verileri çekiliyor... (32/50)
+2024-12-23 22:36:31,813 - INFO - [FETCH] ARBUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/ARBUSDT_latest.csv
+2024-12-23 22:36:31,813 - INFO - [FETCH] ARBUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:31,813 - INFO - [OPEN_PRICE] ARBUSDT anlık açılış fiyatı: 0.756
+2024-12-23 22:36:32,318 - INFO - [FETCH] BONKUSDT - 1h verileri çekiliyor... (33/50)
+2024-12-23 22:36:34,626 - INFO - [FETCH] BONKUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/BONKUSDT_latest.csv
+2024-12-23 22:36:34,626 - INFO - [FETCH] BONKUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:34,626 - INFO - [OPEN_PRICE] BONKUSDT anlık açılış fiyatı: 3.066e-05
+2024-12-23 22:36:35,128 - INFO - [FETCH] NEARUSDT - 1h verileri çekiliyor... (34/50)
+2024-12-23 22:36:37,395 - INFO - [FETCH] NEARUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/NEARUSDT_latest.csv
+2024-12-23 22:36:37,395 - INFO - [FETCH] NEARUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:37,395 - INFO - [OPEN_PRICE] NEARUSDT anlık açılış fiyatı: 5.079
+2024-12-23 22:36:37,900 - INFO - [FETCH] DOTUSDT - 1h verileri çekiliyor... (35/50)
+2024-12-23 22:36:40,189 - INFO - [FETCH] DOTUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/DOTUSDT_latest.csv
+2024-12-23 22:36:40,190 - INFO - [FETCH] DOTUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:40,190 - INFO - [OPEN_PRICE] DOTUSDT anlık açılış fiyatı: 6.951
+2024-12-23 22:36:40,695 - INFO - [FETCH] RUNEUSDT - 1h verileri çekiliyor... (36/50)
+2024-12-23 22:36:43,091 - INFO - [FETCH] RUNEUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/RUNEUSDT_latest.csv
+2024-12-23 22:36:43,091 - INFO - [FETCH] RUNEUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:43,091 - INFO - [OPEN_PRICE] RUNEUSDT anlık açılış fiyatı: 4.994
+2024-12-23 22:36:43,595 - INFO - [FETCH] FETUSDT - 1h verileri çekiliyor... (37/50)
+2024-12-23 22:36:45,951 - INFO - [FETCH] FETUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/FETUSDT_latest.csv
+2024-12-23 22:36:45,951 - INFO - [FETCH] FETUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:45,951 - INFO - [OPEN_PRICE] FETUSDT anlık açılış fiyatı: 1.266
+2024-12-23 22:36:46,456 - INFO - [FETCH] DEXEUSDT - 1h verileri çekiliyor... (38/50)
+2024-12-23 22:36:49,407 - INFO - [FETCH] DEXEUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/DEXEUSDT_latest.csv
+2024-12-23 22:36:49,407 - INFO - [FETCH] DEXEUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:49,407 - INFO - [OPEN_PRICE] DEXEUSDT anlık açılış fiyatı: 13.366
+2024-12-23 22:36:49,911 - INFO - [FETCH] XLMUSDT - 1h verileri çekiliyor... (39/50)
+2024-12-23 22:36:52,140 - INFO - [FETCH] XLMUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/XLMUSDT_latest.csv
+2024-12-23 22:36:52,140 - INFO - [FETCH] XLMUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:52,140 - INFO - [OPEN_PRICE] XLMUSDT anlık açılış fiyatı: 0.3511
+2024-12-23 22:36:52,645 - INFO - [FETCH] FXSUSDT - 1h verileri çekiliyor... (40/50)
+2024-12-23 22:36:54,807 - INFO - [FETCH] FXSUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/FXSUSDT_latest.csv
+2024-12-23 22:36:54,808 - INFO - [FETCH] FXSUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:54,808 - INFO - [OPEN_PRICE] FXSUSDT anlık açılış fiyatı: 3.134
+2024-12-23 22:36:55,313 - INFO - [FETCH] FILUSDT - 1h verileri çekiliyor... (41/50)
+2024-12-23 22:36:57,527 - INFO - [FETCH] FILUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/FILUSDT_latest.csv
+2024-12-23 22:36:57,527 - INFO - [FETCH] FILUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:36:57,527 - INFO - [OPEN_PRICE] FILUSDT anlık açılış fiyatı: 4.875
+2024-12-23 22:36:58,032 - INFO - [FETCH] OPUSDT - 1h verileri çekiliyor... (42/50)
+2024-12-23 22:37:00,278 - INFO - [FETCH] OPUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/OPUSDT_latest.csv
+2024-12-23 22:37:00,278 - INFO - [FETCH] OPUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:00,278 - INFO - [OPEN_PRICE] OPUSDT anlık açılış fiyatı: 1.782
+2024-12-23 22:37:00,781 - INFO - [FETCH] ALGOUSDT - 1h verileri çekiliyor... (43/50)
+2024-12-23 22:37:02,993 - INFO - [FETCH] ALGOUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/ALGOUSDT_latest.csv
+2024-12-23 22:37:02,994 - INFO - [FETCH] ALGOUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:02,994 - INFO - [OPEN_PRICE] ALGOUSDT anlık açılış fiyatı: 0.353
+2024-12-23 22:37:03,499 - INFO - [FETCH] FLOKIUSDT - 1h verileri çekiliyor... (44/50)
+2024-12-23 22:37:05,852 - INFO - [FETCH] FLOKIUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/FLOKIUSDT_latest.csv
+2024-12-23 22:37:05,852 - INFO - [FETCH] FLOKIUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:05,852 - INFO - [OPEN_PRICE] FLOKIUSDT anlık açılış fiyatı: 0.00016773
+2024-12-23 22:37:06,357 - INFO - [FETCH] XVGUSDT - 1h verileri çekiliyor... (45/50)
+2024-12-23 22:37:08,630 - INFO - [FETCH] XVGUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/XVGUSDT_latest.csv
+2024-12-23 22:37:08,630 - INFO - [FETCH] XVGUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:08,630 - INFO - [OPEN_PRICE] XVGUSDT anlık açılış fiyatı: 0.012322
+2024-12-23 22:37:09,136 - INFO - [FETCH] SEIUSDT - 1h verileri çekiliyor... (46/50)
+2024-12-23 22:37:11,315 - INFO - [FETCH] SEIUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/SEIUSDT_latest.csv
+2024-12-23 22:37:11,316 - INFO - [FETCH] SEIUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:11,316 - INFO - [OPEN_PRICE] SEIUSDT anlık açılış fiyatı: 0.421
+2024-12-23 22:37:11,821 - INFO - [FETCH] DFUSDT - 1h verileri çekiliyor... (47/50)
+2024-12-23 22:37:14,014 - INFO - [FETCH] DFUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/DFUSDT_latest.csv
+2024-12-23 22:37:14,014 - INFO - [FETCH] DFUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:14,014 - INFO - [OPEN_PRICE] DFUSDT anlık açılış fiyatı: 0.07883
+2024-12-23 22:37:14,520 - INFO - [FETCH] HIVEUSDT - 1h verileri çekiliyor... (48/50)
+2024-12-23 22:37:16,849 - INFO - [FETCH] HIVEUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/HIVEUSDT_latest.csv
+2024-12-23 22:37:16,849 - INFO - [FETCH] HIVEUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:16,849 - INFO - [OPEN_PRICE] HIVEUSDT anlık açılış fiyatı: 0.3469
+2024-12-23 22:37:17,354 - INFO - [FETCH] FTTUSDT - 1h verileri çekiliyor... (49/50)
+2024-12-23 22:37:19,803 - INFO - [FETCH] FTTUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/FTTUSDT_latest.csv
+2024-12-23 22:37:19,803 - INFO - [FETCH] FTTUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:19,803 - INFO - [OPEN_PRICE] FTTUSDT anlık açılış fiyatı: 3.1961
+2024-12-23 22:37:20,308 - INFO - [FETCH] SANDUSDT - 1h verileri çekiliyor... (50/50)
+2024-12-23 22:37:22,489 - INFO - [FETCH] SANDUSDT için yeni dosya oluşturuldu: /Users/magtay/Desktop/backendphase1/crypto-signal-bot/data/dataClient/data/SANDUSDT_latest.csv
+2024-12-23 22:37:22,489 - INFO - [FETCH] SANDUSDT: Son Kapanış Zamanı (UTC+3): 2024-12-23 19:59:59.999000+03:00
+2024-12-23 22:37:22,489 - INFO - [OPEN_PRICE] SANDUSDT anlık açılış fiyatı: 0.5576
